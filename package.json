@@ -1,0 +1,17 @@
+{
+  "name": "portfolio_website",
+  "version": "1.0.0",
+  "description": "portfolio website",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch scss:css"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.58.3"
+  },
+  "dependencies": {
+    "feather-icons": "^4.29.0"
+  }
+}

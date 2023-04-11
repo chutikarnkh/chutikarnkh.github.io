@@ -1,0 +1,191 @@
+.container {
+  width: 85%;
+  max-width: 120rem;
+  margin: 0 auto;
+  // padding: 0 3.2rem;
+  &--inner {
+    max-width: 90rem;
+  }
+}
+
+[class^='section-']:not(.section-hero) {
+  padding: 9.6rem 0;
+}
+
+.grid {
+  display: grid;
+  column-gap: 4.8rem;
+  row-gap: 8rem;
+
+  &--2-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &--3-cols {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &-center-v {
+    align-items: center;
+  }
+}
+
+%heading-shared {
+  font-weight: 700;
+  color: $gray-700;
+  letter-spacing: -0.2px;
+}
+
+.heading {
+  &-primary {
+    @extend %heading-shared;
+    font-size: 6.2rem;
+    line-height: 1.05;
+    margin-bottom: 2.4rem;
+  }
+
+  &-secondary {
+    @extend %heading-shared;
+    font-size: 4.4rem;
+    line-height: 1.2;
+    margin-bottom: 4.8rem;
+  }
+
+  &-tertiary {
+    @extend %heading-shared;
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-bottom: 1.6rem;
+  }
+}
+
+.subheading {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: $orange;
+  text-transform: uppercase;
+  margin: 0 0 1.6rem 0.2rem;
+  letter-spacing: 0.5px;
+}
+
+%link {
+  &:link,
+  &:visited {
+    display: inline-block;
+    // text-decoration: underline inherit;
+    text-decoration-thickness: 1.5px;
+
+    background: linear-gradient(
+      to right,
+      $orange-tint-400 50%,
+      transparent 50%
+    );
+    background-size: 210% 100%;
+    background-position: right bottom;
+    transition: 0.25s ease;
+  }
+  &:hover,
+  &:active,
+  &.active {
+    background-position: left top;
+  }
+}
+
+// Buttons
+%btn-shared {
+  &:link,
+  &:visited {
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 500;
+    transition: $transition;
+  }
+}
+
+.btn {
+  &-outline {
+    @extend %btn-shared;
+    border: 0.2rem solid $gray-700;
+    color: $gray-700;
+
+    &-lg {
+      font-size: 1.6rem;
+      padding: 1.2em 2.4em;
+    }
+
+    &-md {
+      font-size: 1.4rem;
+      padding: 0.8em 1.6em;
+    }
+
+    &:hover,
+    &:active {
+      background-color: $orange-tint-400;
+    }
+  }
+}
+
+%list {
+  list-style: none;
+  display: flex;
+  // flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1.4rem;
+  padding: 1.5rem 0;
+}
+
+%list-item {
+  // font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  line-height: 1.2;
+}
+
+/* HELPER/SETTINGS CLASSES */
+.center-text {
+  text-align: center;
+}
+
+// Padding
+.py {
+  &-1 {
+    padding: 1rem 0;
+  }
+  &-2 {
+    padding: 2rem 0;
+  }
+  &-3 {
+    padding: 3rem 0;
+  }
+  &-4 {
+    padding: 4rem 0;
+  }
+}
+
+// Margin
+.my {
+  &-0 {
+    margin: 0 !important;
+  }
+  &-1 {
+    margin: 1rem 0 !important;
+  }
+  &-2 {
+    margin: 2rem 0 !important;
+  }
+  &-3 {
+    margin: 3rem 0 !important;
+  }
+  &-4 {
+    margin: 4rem 0 !important;
+  }
+}
+
+.mr-sm {
+  margin-right: 1.5rem !important;
+}

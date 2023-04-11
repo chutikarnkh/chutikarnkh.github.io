@@ -1,0 +1,31 @@
+// Variables
+$website-width: 1280px;
+$transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+$border-radius: 4px;
+
+/* Typography  */
+// Font size
+
+/*  Color */
+$orange: #ff9e1b;
+$orange-tint-200: #ffb149;
+$orange-tint-400: #ffc576;
+$orange-shade-100: #e68e18;
+$orange-shade-200: #cc7e16;
+
+$gray-000: #adadad;
+$gray-200: #8a8a8a;
+$gray-400: #686868;
+$gray-500: #575757;
+$gray-700: #343434;
+$gray-tint-900: #f7f7f7;
+$gray-tint-700: #e6e6e6;
+
+// Set Text Color
+@function set-text-color($color) {
+  @if (lightness($color) > 50) {
+    @return $gray-500;
+  } @else {
+    @return $gray-tint-900;
+  }
+}
