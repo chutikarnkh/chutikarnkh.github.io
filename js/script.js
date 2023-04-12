@@ -6,7 +6,6 @@ const link = document.querySelectorAll('.main-nav-link');
 // Active link
 //==================================
 mainNav.addEventListener('click', (e) => {
-  console.log('e.target=>', e.target);
   if (e.target.classList.contains('main-nav-link')) {
     removeActive();
     e.target.classList.add('active');
@@ -27,17 +26,21 @@ function removeActive() {
 const allLinks = document.querySelectorAll('a:link');
 allLinks.forEach((link) => {
   link.addEventListener('click', (e) => {
-    e.preventDefault();
+
     const href = link.getAttribute('href');
 
     // Scroll back to top
-    if (href === '#') window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
+    if (href === '#') {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    };
 
     // Scroll to other links
     if (href !== "#" && href.startsWith('#')) {
+      e.preventDefault();
       const sectionEl = document.querySelector(href);
       sectionEl.scrollIntoView({ behavior: "smooth" });
     }
