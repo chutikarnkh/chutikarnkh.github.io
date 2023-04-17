@@ -20,10 +20,6 @@ body {
   overflow-x: hidden;
 }
 
-section:nth-of-type(even) {
-  background-color: $gray-tint-900;
-}
-
 /*****************************/
 /* HEADER */
 /*****************************/
@@ -113,99 +109,101 @@ section:nth-of-type(even) {
 /*****************************/
 /* ABOUT SECTION */
 /*****************************/
+.section-about {
+  background-color: $gray-tint-900;
+  .about-content {
+    // display: grid;
+    grid-template-columns: 3fr 2fr;
 
-.about-content {
-  // display: grid;
-  grid-template-columns: 3fr 2fr;
-
-  .about-text-box {
-    font-size: 1.8rem;
-    line-height: 1.6;
-
-    p {
-      margin: 0 0 1.6rem;
-    }
-
-    .link {
-      @extend %link;
-      color: inherit;
-    }
-
-    .about-tech-list {
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(14rem, 20rem));
-      gap: 1rem 1.2rem;
-      padding: 1.6rem 0;
-
-      font-size: 1.3rem;
-
-      .tech-item {
-        @extend %list-item;
-        letter-spacing: 0.04rem;
-        .tech-icon {
-          width: 1.4rem;
-          height: 1.4rem;
-          color: $orange;
-        }
-      }
-    }
-    .download {
-      display: inline-flex;
-      align-items: center;
-      text-decoration: none;
+    .about-text-box {
       font-size: 1.8rem;
-      color: $gray-700;
-      margin: 2.4rem 0 0 -0.2rem;
+      line-height: 1.6;
 
-      &-icon {
-        width: 3.05rem;
-        height: 3.05rem;
-        fill: inherit;
-        stroke: inherit;
-        transition: $transition;
+      p {
+        margin: 0 0 1.6rem;
+      }
 
-        polyline,
-        line {
-          stroke: white;
+      .link {
+        @extend %link;
+        color: inherit;
+      }
+
+      .about-tech-list {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(14rem, 20rem));
+        gap: 1rem 1.2rem;
+        padding: 1.6rem 0;
+
+        font-size: 1.3rem;
+
+        .tech-item {
+          @extend %list-item;
+          letter-spacing: 0.04rem;
+          .tech-icon {
+            width: 1.4rem;
+            height: 1.4rem;
+            color: $orange;
+          }
         }
       }
-      span {
-        margin-left: 0.6rem;
-        transition: $transition;
-      }
+      .download {
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+        font-size: 1.8rem;
+        color: $gray-700;
+        margin: 2.4rem 0 0 -0.2rem;
 
-      &:hover {
-        .download-icon {
-          transform: rotate(90deg);
+        &-icon {
+          width: 3.05rem;
+          height: 3.05rem;
+          fill: inherit;
+          stroke: inherit;
+          transition: $transition;
+
+          polyline,
+          line {
+            stroke: white;
+          }
         }
         span {
-          transform: translateX(0.25rem);
+          margin-left: 0.6rem;
+          transition: $transition;
+        }
+
+        &:hover {
+          .download-icon {
+            transform: rotate(90deg);
+          }
+          span {
+            transform: translateX(0.25rem);
+          }
         }
       }
     }
-  }
 
-  .about-img-box {
-    position: relative;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    filter: grayscale(40%) opacity(0.85);
-    background-color: $gray-tint-900;
-    transition: $transition;
+    .about-img-box {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      filter: grayscale(40%) opacity(0.85);
+      background-color: $gray-tint-900;
+      transition: $transition;
 
-    &:hover {
-      filter: none;
-      mix-blend-mode: normal;
-    }
-    .about-image {
-      width: 100%;
-      mix-blend-mode: multiply;
-      max-width: 34rem;
-      position: absolute;
-      border-radius: 0.4rem;
-      object-fit: cover;
+      &:hover {
+        filter: none;
+        mix-blend-mode: normal;
+      }
+      .about-image {
+        width: 100%;
+        mix-blend-mode: multiply;
+        max-width: 34rem;
+        position: absolute;
+        border-radius: 0.4rem;
+        object-fit: cover;
+      }
     }
   }
 }
@@ -250,9 +248,19 @@ section:nth-of-type(even) {
     display: flex;
     align-items: center;
     justify-content: center;
+    filter: grayscale(0.8) opacity(0.8);
+    background-color: $gray-tint-900;
+    transition: $transition;
 
+    &:hover {
+      filter: none;
+      mix-blend-mode: normal;
+    }
     img {
       width: 100%;
+      mix-blend-mode: multiply;
+      border-radius: 0.4rem;
+      object-fit: cover;
     }
   }
 }
@@ -311,6 +319,8 @@ section:nth-of-type(even) {
 /* CONTACT SECTION */
 /*****************************/
 .section-contact {
+  background-color: $gray-tint-900;
+
   .container-contact {
     margin-bottom: 9.6rem;
   }
