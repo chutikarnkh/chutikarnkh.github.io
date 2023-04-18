@@ -21,7 +21,7 @@
   }
 
   &--3-cols {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   }
 
   &-center-v {
@@ -38,14 +38,16 @@
 .heading {
   &-primary {
     @extend %heading-shared;
-    font-size: 6.2rem;
+    // font-size: 6.2rem;
+    font-size: clamp(3.2rem, 7vw, 6.4rem);
     line-height: 1.05;
     margin-bottom: 2.4rem;
   }
 
   &-secondary {
     @extend %heading-shared;
-    font-size: 4.4rem;
+    // font-size: 4.4rem;
+    font-size: clamp(2.8rem, 5vw, 4rem);
     line-height: 1.2;
     margin-bottom: 6.4rem;
   }
