@@ -9,8 +9,8 @@
   max-width: 90rem;
 }
 
-[class^=section-]:not(.section-hero) {
-  padding: 9.6rem 0;
+a.unclickable {
+  pointer-events: none;
 }
 
 .grid {
@@ -22,7 +22,7 @@
   grid-template-columns: repeat(2, 1fr);
 }
 .grid--3-cols {
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
 }
 .grid-center-v {
   align-items: center;
@@ -60,7 +60,7 @@
   letter-spacing: 0.5px;
 }
 
-.section-contact .contact-social .contact-list .contact-item .contact-link:link, .pen-more-item .pen-more-title .heading-tertiary a:link, .project-list .heading-tertiary a:link, .section-about .about-content .about-text-box .link:link, .main-nav-link:link, .section-contact .contact-social .contact-list .contact-item .contact-link:visited, .pen-more-item .pen-more-title .heading-tertiary a:visited, .project-list .heading-tertiary a:visited, .section-about .about-content .about-text-box .link:visited, .main-nav-link:visited {
+.section-contact .contact-social .contact-list .contact-item .contact-link:link, .section-codepen .pen-more-item .pen-more-title .heading-tertiary a:link, .section-projects .project-list .heading-tertiary a:link, .section-about .about-content .about-text-box .link:link, .main-nav-link:link, .section-contact .contact-social .contact-list .contact-item .contact-link:visited, .section-codepen .pen-more-item .pen-more-title .heading-tertiary a:visited, .section-projects .project-list .heading-tertiary a:visited, .section-about .about-content .about-text-box .link:visited, .main-nav-link:visited {
   display: inline-block;
   text-decoration-thickness: 1.5px;
   background: linear-gradient(to right, #ffc576 50%, transparent 50%);
@@ -68,7 +68,7 @@
   background-position: right bottom;
   transition: 0.25s ease;
 }
-.section-contact .contact-social .contact-list .contact-item .contact-link:hover, .pen-more-item .pen-more-title .heading-tertiary a:hover, .project-list .heading-tertiary a:hover, .section-about .about-content .about-text-box .link:hover, .main-nav-link:hover, .section-contact .contact-social .contact-list .contact-item .contact-link:active, .pen-more-item .pen-more-title .heading-tertiary a:active, .project-list .heading-tertiary a:active, .section-about .about-content .about-text-box .link:active, .main-nav-link:active, .section-contact .contact-social .contact-list .contact-item .active.contact-link, .pen-more-item .pen-more-title .heading-tertiary a.active, .project-list .heading-tertiary a.active, .section-about .about-content .about-text-box .active.link, .active.main-nav-link {
+.section-contact .contact-social .contact-list .contact-item .contact-link:hover, .section-codepen .pen-more-item .pen-more-title .heading-tertiary a:hover, .section-projects .project-list .heading-tertiary a:hover, .section-about .about-content .about-text-box .link:hover, .main-nav-link:hover, .section-contact .contact-social .contact-list .contact-item .contact-link:active, .section-codepen .pen-more-item .pen-more-title .heading-tertiary a:active, .section-projects .project-list .heading-tertiary a:active, .section-about .about-content .about-text-box .link:active, .main-nav-link:active, .section-contact .contact-social .contact-list .contact-item .active.contact-link, .section-codepen .pen-more-item .pen-more-title .heading-tertiary a.active, .section-projects .project-list .heading-tertiary a.active, .section-about .about-content .about-text-box .active.link, .active.main-nav-link {
   background-position: left top;
 }
 
@@ -98,7 +98,7 @@
   background-color: #ffc576;
 }
 
-.section-contact .contact-social .contact-list, .pen-more-item .pen-more-tech, .project-list .project-tech {
+.section-contact .contact-social .contact-list, .section-codepen .pen-more-item .pen-more-tech, .section-projects .project-list .project-tech {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
@@ -106,7 +106,7 @@
   padding: 1.6rem 0;
 }
 
-.pen-more-item .pen-more-tech li, .project-list .project-tech li, .section-about .about-content .about-text-box .about-tech-list .tech-item {
+.section-codepen .pen-more-item .pen-more-tech li, .section-projects .project-list .project-tech li, .section-about .about-content .about-text-box .about-tech-list .tech-item {
   display: flex;
   align-items: center;
   gap: 0.4rem;
@@ -238,8 +238,10 @@ body {
   padding-bottom: 0;
   background-color: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
   z-index: 999;
-  box-shadow: 0 1.2rem 3.2rem rgba(173, 173, 173, 0.1);
+  box-shadow: 0 1.2rem 3rem -1rem rgba(173, 173, 173, 0.2);
 }
 .sticky .section-hero {
   margin-top: 9.6rem;
@@ -274,6 +276,7 @@ body {
 /*****************************/
 .section-about {
   background-color: #f7f7f7;
+  padding: 9.6rem 0;
 }
 .section-about .about-content {
   grid-template-columns: 3fr 2fr;
@@ -358,45 +361,49 @@ body {
 /*****************************/
 /* PROJECT SECTION */
 /*****************************/
-.project-list .heading-tertiary a {
+.section-projects {
+  background-color: white;
+  padding: 9.6rem 0;
+}
+.section-projects .project-list .heading-tertiary a {
   color: inherit;
 }
-.project-list .project-description {
+.section-projects .project-list .project-description {
   font-size: 1.8rem;
   line-height: 1.8;
 }
-.project-list .project-tech {
+.section-projects .project-list .project-tech {
   font-size: 1.2rem;
   color: #686868;
 }
-.project-list .project-links {
+.section-projects .project-list .project-links {
   display: flex;
   gap: 2rem;
   margin-top: 1.6rem;
 }
-.project-list .project-links a {
+.section-projects .project-list .project-links a {
   color: #343434;
 }
-.project-list .project-links a:hover {
+.section-projects .project-list .project-links a:hover {
   color: #ff9e1b;
 }
-.project-list .project-img {
+.section-projects .project-list .project-img {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
-.project-list .project-img:hover img {
+.section-projects .project-list .project-img:hover img {
   filter: none;
   mix-blend-mode: normal;
 }
-.project-list .project-img a {
+.section-projects .project-list .project-img a {
   width: 100%;
   background-color: #f7f7f7;
   border-radius: 4px;
 }
-.project-list .project-img img {
+.section-projects .project-list .project-img img {
   width: 100%;
   filter: grayscale(0.8) opacity(0.8);
   mix-blend-mode: multiply;
@@ -408,38 +415,46 @@ body {
 /*****************************/
 /* CODEPEN & MORE SECTION */
 /*****************************/
-.pen-more-item {
+.section-codepen {
+  background-color: white;
+  padding: 9.6rem 0;
+}
+.section-codepen .pen-more-grid {
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 4.8rem;
+}
+.section-codepen .pen-more-item {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
 }
-.pen-more-item .pen-more-image {
+.section-codepen .pen-more-item .pen-more-image {
   overflow: hidden;
 }
-.pen-more-item .pen-more-image img {
+.section-codepen .pen-more-item .pen-more-image img {
   width: 100%;
   aspect-ratio: 3/2;
   object-fit: cover;
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
-.pen-more-item .pen-more-image img:hover {
+.section-codepen .pen-more-item .pen-more-image img:hover {
   transform: scale(1.08);
 }
-.pen-more-item .pen-more-title {
+.section-codepen .pen-more-item .pen-more-title {
   margin-top: 2.4rem;
 }
-.pen-more-item .pen-more-title .heading-tertiary {
+.section-codepen .pen-more-item .pen-more-title .heading-tertiary {
   font-size: 2rem;
 }
-.pen-more-item .pen-more-title .heading-tertiary a {
+.section-codepen .pen-more-item .pen-more-title .heading-tertiary a {
   color: inherit;
 }
-.pen-more-item .pen-more-description {
+.section-codepen .pen-more-item .pen-more-description {
   font-size: 1.6rem;
   line-height: 1.5;
 }
-.pen-more-item .pen-more-tech {
+.section-codepen .pen-more-item .pen-more-tech {
   font-size: 1.2rem;
   color: #686868;
 }
@@ -447,6 +462,7 @@ body {
 /* CONTACT SECTION */
 /*****************************/
 .section-contact {
+  padding: 9.6rem 0;
   background-color: #f7f7f7;
 }
 .section-contact .container-contact {
@@ -523,6 +539,10 @@ body {
   }
   .grid {
     column-gap: 3.2rem;
+  }
+  .section-codepen .pen-more-grid {
+    grid-template-columns: repeat(auto-fill, minmax(242px, 1fr));
+    gap: 3.2rem;
   }
 }
 /*****************************/
@@ -608,6 +628,9 @@ body {
 /* BELOW 480px (Phones) */
 /*****************************/
 @media (max-width: 30em) {
+  .header {
+    padding: 0 3.6rem;
+  }
   .grid {
     row-gap: 6.4rem;
   }

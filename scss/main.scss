@@ -92,8 +92,10 @@ body {
     padding-bottom: 0;
     background-color: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: $transition;
     z-index: 999;
-    box-shadow: 0 1.2rem 3.2rem rgba(173, 173, 173, 0.1);
+    box-shadow: 0 1.2rem 3rem -1rem rgba(173, 173, 173, 0.2);
   }
 
   .section-hero {
@@ -130,6 +132,7 @@ body {
 /*****************************/
 .section-about {
   background-color: $gray-tint-900;
+  padding: 9.6rem 0;
   .about-content {
     // display: grid;
     grid-template-columns: 3fr 2fr;
@@ -230,63 +233,68 @@ body {
 /*****************************/
 /* PROJECT SECTION */
 /*****************************/
-.project-list {
-  .heading-tertiary a {
-    @extend %link;
-    color: inherit;
-  }
-  .project-description {
-    font-size: 1.8rem;
-    line-height: 1.8;
-  }
+.section-projects {
+  background-color: white;
+  padding: 9.6rem 0;
 
-  .project-tech {
-    @extend %list;
-    font-size: 1.2rem;
-    color: $gray-400;
-
-    li {
-      @extend %list-item;
+  .project-list {
+    .heading-tertiary a {
+      @extend %link;
+      color: inherit;
     }
-  }
+    .project-description {
+      font-size: 1.8rem;
+      line-height: 1.8;
+    }
 
-  .project-links {
-    display: flex;
-    gap: 2rem;
-    margin-top: 1.6rem;
-    a {
-      color: $gray-700;
-      &:hover {
-        color: $orange;
+    .project-tech {
+      @extend %list;
+      font-size: 1.2rem;
+      color: $gray-400;
+
+      li {
+        @extend %list-item;
       }
     }
-  }
 
-  .project-img {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: $transition;
-
-    &:hover img {
-      filter: none;
-      mix-blend-mode: normal;
+    .project-links {
+      display: flex;
+      gap: 2rem;
+      margin-top: 1.6rem;
+      a {
+        color: $gray-700;
+        &:hover {
+          color: $orange;
+        }
+      }
     }
 
-    a {
-      width: 100%;
-      background-color: $gray-tint-900;
-      border-radius: 4px;
-    }
+    .project-img {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: $transition;
 
-    img {
-      width: 100%;
-      filter: grayscale(0.8) opacity(0.8);
-      mix-blend-mode: multiply;
-      object-fit: cover;
-      aspect-ratio: 16/9;
-      border-radius: 4px;
+      &:hover img {
+        filter: none;
+        mix-blend-mode: normal;
+      }
+
+      a {
+        width: 100%;
+        background-color: $gray-tint-900;
+        border-radius: 4px;
+      }
+
+      img {
+        width: 100%;
+        filter: grayscale(0.8) opacity(0.8);
+        mix-blend-mode: multiply;
+        object-fit: cover;
+        aspect-ratio: 16/9;
+        border-radius: 4px;
+      }
     }
   }
 }
@@ -294,49 +302,58 @@ body {
 /*****************************/
 /* CODEPEN & MORE SECTION */
 /*****************************/
-.pen-more-item {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
+.section-codepen {
+  background-color: white;
+  padding: 9.6rem 0;
+  .pen-more-grid {
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 4.8rem;
+  }
 
-  .pen-more-image {
-    // position: relative;
-    overflow: hidden;
-    img {
-      width: 100%;
-      aspect-ratio: 3/2;
-      object-fit: cover;
-      transition: $transition;
-      &:hover {
-        transform: scale(1.08);
+  .pen-more-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .pen-more-image {
+      // position: relative;
+      overflow: hidden;
+      img {
+        width: 100%;
+        aspect-ratio: 3/2;
+        object-fit: cover;
+        transition: $transition;
+        &:hover {
+          transform: scale(1.08);
+        }
       }
     }
-  }
 
-  .pen-more-title {
-    margin-top: 2.4rem;
-    .heading-tertiary {
-      font-size: 2rem;
-      a {
-        @extend %link;
-        color: inherit;
+    .pen-more-title {
+      margin-top: 2.4rem;
+      .heading-tertiary {
+        font-size: 2rem;
+        a {
+          @extend %link;
+          color: inherit;
+        }
       }
     }
-  }
 
-  .pen-more-description {
-    font-size: 1.6rem;
-    line-height: 1.5;
-  }
+    .pen-more-description {
+      font-size: 1.6rem;
+      line-height: 1.5;
+    }
 
-  .pen-more-tech {
-    @extend %list;
-    font-size: 1.2rem;
-    color: $gray-400;
+    .pen-more-tech {
+      @extend %list;
+      font-size: 1.2rem;
+      color: $gray-400;
 
-    li {
-      @extend %list-item;
+      li {
+        @extend %list-item;
+      }
     }
   }
 }
@@ -345,6 +362,7 @@ body {
 /* CONTACT SECTION */
 /*****************************/
 .section-contact {
+  padding: 9.6rem 0;
   background-color: $gray-tint-900;
 
   .container-contact {

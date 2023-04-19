@@ -18,6 +18,13 @@
   .grid {
     column-gap: 3.2rem;
   }
+
+  .section-codepen {
+    .pen-more-grid {
+      grid-template-columns: repeat(auto-fill, minmax(242px, 1fr));
+      gap: 3.2rem;
+    }
+  }
 }
 
 /*****************************/
@@ -128,6 +135,9 @@
 /* BELOW 480px (Phones) */
 /*****************************/
 @media (max-width: 30em) {
+  .header {
+    padding: 0 3.6rem;
+  }
   .grid {
     row-gap: 6.4rem;
   }
